@@ -21,7 +21,7 @@
 
         if($rsLogin = mysqli_query($con, $strSql)){
             if(mysqli_num_rows($rsLogin) > 0){
-                echo 'Welcome';
+                header("location: dashboard.php");
                 mysqli_free_result($rsLogin);
             }
             else{
