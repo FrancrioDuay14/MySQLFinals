@@ -1,3 +1,4 @@
+<?php require_once("functions.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,15 +50,15 @@
                     <div class="sidebar-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">
+                                <a class="nav-link active" href="dashboard.php">
                                     <i class="fa fa-tachometer-alt"></i>
                                     Dashboard <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="persons.php">
-                                    <i class="fa fa-users"></i>
-                                    Persons
+                                <a class="nav-link" href="products.php">
+                                    <i class="fa-brands fa-shopify"></i>
+                                    Products
                                 </a>
                             </li>
                         </ul>

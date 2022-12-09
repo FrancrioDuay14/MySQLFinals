@@ -1,25 +1,19 @@
 <?php 
     if(isset($_POST['btnlogin'])){
-        require_once("openconn.php");
+        $con = openConn();
 
-        $username = htmlspecialchars($_POST['username']);
-        $password = htmlspecialchars($_POST['password']);
-
-        $username = stripcslashes($username);
-        $password = stripcslashes($password);
-
-        $username = mysqli_real_escape_string($con, $username);
-        $password = mysqli_real_escape_string($con, $password);
+        $username = sanitizeInput($con, $_POST['username']);
+        $password = sanitizeInput($con, $_POST['password']);
         
         $password = md5($password);
 
         $strSql = "
-                SELECT * FROM user_table
+                SELECT * FROM tbl_user
                 WHERE username = '$username'
                 AND password = '$password'
             ";
 
-        if($rsLogin = mysqli_query($con, $strSql)){
+       /* if($rsLogin = mysqli_query($con, $strSql)){
             if(mysqli_num_rows($rsLogin) > 0){
                 header("location: dashboard.php");
                 mysqli_free_result($rsLogin);
@@ -27,12 +21,17 @@
             else{
                 echo 'Invalid Username/Password';
             }
+        }*/
+        $rsLogin = getRecord($con, $strSql);
+        if(!empty($rsLogin)){
+            header("location: dashboard.php");
+            mysqli_free_result($rsLogin);
         }
         else {
             echo 'ERROR: Could not execute your request!';
         }
-        require_once("closeconn.php");
-
+       
+        closeConn($con);   
     }
 ?>
 <!DOCTYPE html>
