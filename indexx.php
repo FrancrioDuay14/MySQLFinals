@@ -44,6 +44,7 @@
                             <div class="product-image2">
                                 <a href="details.php?k=<?php echo $id; ?>">
                                     <img class="pic-1" src="uploads/<?php echo $product['photo1']; ?>">
+                                    <img class="pic-2" src="uploads/<?php echo $product['photo2']; ?>">
                                 </a>                        
                                 <a class="add-to-cart" href="details.php?k=<?php echo $id; ?>">
                                     <i class="fa fa-cart-plus"></i> Add to cart
