@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $_SESSION['CURR_PAGE'] = 'products';
+?>
 <?php require_once("header-nav.php");?>
 <?php
 
