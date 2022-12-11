@@ -125,7 +125,7 @@
                                             echo '<td><img src="uploads/'. $value['photo1'] .'" style="height: 50px;"></td>';
                                             echo '<td>'; 
                                                 echo '<a href="edit-products.php?k=' . $value['id'] .'" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> ';
-                                                echo '<a href="#?k=' . $value['id'] .'" class="btn btn-danger"><i class="fa fa-trash"></i>Remove</a>';
+                                                echo '<a href="delete-products.php?k=' . $value['id'] .'" class="btn btn-danger"><i class="fa fa-trash"></i>Remove</a>';
                                             echo '</td>';
                                         echo '</tr>';                       
                                         }
