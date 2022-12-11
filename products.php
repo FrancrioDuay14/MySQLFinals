@@ -57,45 +57,46 @@
 ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2"> <i class="fa-brands fa-shopify"></i> Add Products</h1>
+                    <h1 class="h2"> <i class="fa-brands fa-plus"></i> Add Products</h1>
                 </div> 
                 <form method="post" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label for="txtName" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="txtName" id="txtName" required>
-                            </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="txtDescription" class="col-sm-2 col-form-label">Description</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="txtDescription" id="txtDescription" required>
-                            </div>
-                    </div>
-                     <div class="form-group row">
-                        <label for="txtPrice" class="col-sm-2 col-form-label">Price</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" name="txtPrice" id="txtPrice" required>
-                            </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="filImageOne" class="col-sm-2 col-form-label"> Photo 1</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control" name="filImageOne" id="filImageOne">
-                            </div>
-                    </div>
-                    <!--<div class="form-group row">
-                        <label for="filImageTwo" class="col-sm-2 col-form-label"> Photo 2</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control" name="filImageTwo" id="filImageTwo" required>
-                            </div>
-                    </div>-->
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit" name="btnAdd" class="btn btn-primary  "><i class="fa fa-plus"></i> Add New Record</button>
+                        <div class="form-group row">
+                            <label for="txtName" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtName" id="txtName" required>
+                                </div>
                         </div>
-                    </div>
-                    </form>
+                        <div class="form-group row">
+                            <label for="txtDescription" class="col-sm-2 col-form-label">Description</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtDescription" id="txtDescription" required>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtPrice" class="col-sm-2 col-form-label">Price</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="txtPrice" id="txtPrice" required>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="filImageOne" class="col-sm-2 col-form-label"> Photo 1</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="filImageOne" id="filImageOne">
+                                </div>
+                        </div>
+                        <!--<div class="form-group row">
+                            <label for="filImageTwo" class="col-sm-2 col-form-label"> Photo 2</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="filImageTwo" id="filImageTwo" required>
+                                </div>
+                        </div>-->
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" name="btnAdd" class="btn btn-primary  "><i class="fa fa-plus"></i> Add New Record</button>
+                            </div>
+                        </div>
+
+                </form>
                 <br><br>
                 <h3> <i class="fa fa-table"></i>Products List</h1>
                     <div class="table-responsive">
@@ -123,7 +124,7 @@
                                             echo '<td>' . $value['price'] .'</td>';
                                             echo '<td><img src="uploads/'. $value['photo1'] .'" style="height: 50px;"></td>';
                                             echo '<td>'; 
-                                                echo '<a href="#?k=' . $value['id'] .'" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> ';
+                                                echo '<a href="edit-products.php?k=' . $value['id'] .'" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> ';
                                                 echo '<a href="#?k=' . $value['id'] .'" class="btn btn-danger"><i class="fa fa-trash"></i>Remove</a>';
                                             echo '</td>';
                                         echo '</tr>';                       
@@ -139,7 +140,7 @@
                                 
                             </tbody>
                         </table>
-                    </div>        
+                    </div>      
             </main>
         </div>
     </div>       
