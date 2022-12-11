@@ -5,14 +5,14 @@
 <?php require_once("header-nav.php");?>
 <?php
 
-    if(isset($_POST['btnAdd']) && isset($_FILES['filImageOne'])){
+    if(isset($_POST['btnAdd']) && isset($_FILES['filImageOne']) && isset($_FILES['filImageTwo'])){
         $con = openConn();
         $name = sanitizeInput($con, $_POST['txtName']);
         $description = sanitizeInput($con, $_POST['txtDescription']);
         $price = $_POST['txtPrice'];
 
         $err = [];
-
+        //for image 1
         $fileName = $_FILES['filImageOne']['name'];
         $fileSize = $_FILES['filImageOne']['size'];
         $fileTemp = $_FILES['filImageOne']['tmp_name'];
@@ -21,14 +21,24 @@
         $fileExtTemp = explode('.', $fileName); //array
         $fileExt = strtolower(end( $fileExtTemp));
 
+        //for image 2
+        $fileNameTwo = $_FILES['filImageTwo']['name'];
+        $fileSizeTwo = $_FILES['filImageTwo']['size'];
+        $fileTempTwo = $_FILES['filImageTwo']['tmp_name'];
+        $fileTypeTwo = $_FILES['filImageTwo']['type'];
+
+        $fileExtTempTwo = explode('.', $fileNameTwo); //array
+        $fileExtTwo = strtolower(end( $fileExtTempTwo));
+
         $allowed = array('jpeg', 'jpg', 'png');
 
     
         $uploadDir = 'uploads/' . $fileName;
+        $uploadDirTwo = 'uploads/' . $fileNameTwo;
 
-        if (in_array($fileExt, $allowed) === false)
+        if (in_array($fileExt, $allowed) === false && in_array($fileExtTwo, $allowed) === false)
             $err[] = "Extension file is not allowed";
-        if ($fileSize > 5000000)
+        if ($fileSize > 5000000 && $fileSizeTwo > 5000000 )
             $err[] = "File Should be 5mb Maximum";
         if(empty($name))
             $err[] = "Last name is required!";
@@ -39,8 +49,8 @@
 
         if(empty($err)){
                 $strSql ="
-                        INSERT INTO tbl_products(name, description, price, photo1)
-                        VALUES('$name', '$description', '$price', '$fileName')
+                        INSERT INTO tbl_products(name, description, price, photo1, photo2)
+                        VALUES('$name', '$description', '$price', '$fileName', '$fileNameTwo')
                     ";
                     /*$strSql ="
                         INSERT INTO tblproducts(name, description)
@@ -49,6 +59,7 @@
 
                 if(mysqli_query($con, $strSql)){
                     move_uploaded_file($fileTemp , $uploadDir);
+                    move_uploaded_file($fileTempTwo , $uploadDirTwo);
                     header("location:add-success-products.php ");
                 }          
                 else
@@ -88,12 +99,12 @@
                                     <input type="file" class="form-control" name="filImageOne" id="filImageOne">
                                 </div>
                         </div>
-                        <!--<div class="form-group row">
+                        <div class="form-group row">
                             <label for="filImageTwo" class="col-sm-2 col-form-label"> Photo 2</label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" name="filImageTwo" id="filImageTwo" required>
                                 </div>
-                        </div>-->
+                        </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <button type="submit" name="btnAdd" class="btn btn-primary  "><i class="fa fa-plus"></i> Add New Record</button>
