@@ -5,10 +5,10 @@
 	if(isset($_GET['k'])){
 		$_SESSION['k'] = $_GET['k'];
 	}
-            
+
     $con = openConn();
     $strSql= "SELECT * FROM tbl_products WHERE id = ".$_SESSION['k'];
-    
+
 
    	if($rsProducts = mysqli_query($con, $strSql)){
         if(mysqli_num_rows($rsProducts) > 0){
@@ -20,7 +20,7 @@
                 echo '<td 	No Record Found!</td>';
             echo '</tr>';
                 }
-           
+
    	}
 
    	else{
@@ -50,10 +50,10 @@
                                 WHERE id = ".$_SESSION['k'];
                 if(mysqli_query($con, $strSql))
                     header('location:delete-success-products.php');
-                
+
                 else
                     echo 'ERROR: Failed to Delete Record!';
-    
+
             }
         closeConn($con); 
     }
@@ -67,19 +67,19 @@
                         <div class="form-group row">
                             <label for="txtName" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="txtName" value="<?php echo (isset($recProducts['name']) ? $recProducts['name'] : ''); ?>" id="txtName" disabled>
+                                    <input type="text" class="form-control" name="txtName" value="<?php echo (isset($recProducts['name']) ? $recProducts['name'] : ''); ?>" id="txtName" required>
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="txtDescription" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="txtDescription" value="<?php echo (isset($recProducts['description']) ? $recProducts['description'] : ''); ?>"id="txtDescription" disabled>
+                                    <input type="text" class="form-control" name="txtDescription" value="<?php echo (isset($recProducts['description']) ? $recProducts['description'] : ''); ?>"id="txtDescription" required>
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="txtPrice" class="col-sm-2 col-form-label">Price</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="txtPrice" value="<?php echo (isset($recProducts['price']) ? $recProducts['price'] : ''); ?>" id="txtPrice" disabled>
+                                    <input type="number" class="form-control" name="txtPrice" value="<?php echo (isset($recProducts['price']) ? $recProducts['price'] : ''); ?>" id="txtPrice" required>
                                 </div>
                         </div>
                         <!--<div class="form-group row">
