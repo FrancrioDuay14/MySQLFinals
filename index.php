@@ -20,16 +20,20 @@
 <body>
     <div class="container">
         <div class="row mt-5">
-            <div class="col-10">
+            <div class="col-8">
                 <h1>
                     <i class="fa fa-store"></i>
                     Learn IT Easy Online Shop
                 </h1>
             </div>
-            <div class="col-2 text-right">
+            <div class="col-4 text-right">
                 <a href="cart.php" class="btn btn-primary">
                     <i class="fa fa-shopping-cart"></i>
                     Cart <span class="badge badge-light"><?php echo $_SESSION['cart_count']; ?></span>
+                </a>
+                <a href="login.php" class="btn btn-primary">
+                     <i class="fa-solid fa-right-to-bracket"></i>
+                        Log In
                 </a>
             </div>
             <div class="col-12">
