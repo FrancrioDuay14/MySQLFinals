@@ -126,31 +126,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    $con = openConn();
-                                    $strSql = "SELECT * FROM tbl_products";
-                                    $recProducts = getRecord($con, $strSql);
+                                 <?php
+                                        $con = openConn();
+                                        $strSql = "SELECT * FROM tbl_products";
 
-                                    if(!empty($recProducts)){
-                                        foreach ($recProducts as $key => $value) {
-                                        echo '<tr>';
-                                            echo '<td>' . $value['name'] .'</td>';
-                                            echo '<td>' . $value['description'] .'</td>';
-                                            echo '<td>' . $value['price'] .'</td>';
-                                            echo '<td><img src="uploads/'. $value['photo1'] .'" style="height: 50px;"></td>';
-                                            echo '<td>'; 
-                                                echo '<a href="edit-products.php?k=' . $value['id'] .'" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> ';
-                                                echo '<a href="delete-products.php?k=' . $value['id'] .'" class="btn btn-danger"><i class="fa fa-trash"></i>Remove</a>';
-                                            echo '</td>';
-                                        echo '</tr>';                       
+                                        if($rsProducts = mysqli_query($con, $strSql)){
+                                            if(mysqli_num_rows($rsProducts)>0){
+                                                while($recProducts = mysqli_fetch_array($rsProducts)){
+                                            echo '<tr>';
+                                                echo '<td>' . $recProducts['name'] .'</td>';
+                                                echo '<td>' . $recProducts['description'] .'</td>';
+                                                echo '<td>' . $recProducts['price'] .'</td>';
+                                                echo '<td><img src="uploads/'. $recProducts['photo1'] .'" style="height: 50px;"></td>';
+                                                echo '<td>'; 
+                                                    echo '<a href="edit-products.php?k=' . $recProducts['id'] .'" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> ';
+                                                    echo '<a href="delete-products.php?k=' . $recProducts['id'] .'" class="btn btn-danger"><i class="fa fa-trash"></i>Remove</a>';
+                                                echo '</td>';
+                                            echo '</tr>';                       
+                                            }
+                                        }
+                                        else{
+                                            echo '<tr>';
+                                                echo '<td colspan="5" class="text-center"> No Records found</td>';
+                                                echo '</tr>';
                                         }
                                     }
-                                    else{
-                                        echo '<tr>';
-                                            echo '<td colspan="5" class="text-center"> No Records found</td>';
-                                            echo '</tr>';
-                                    }
-                                    closeConn($con);                  
+                                        closeConn($con);                  
                                 ?>
                                 
                             </tbody>
