@@ -61,6 +61,12 @@
                                     Products
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php echo ($_SESSION['CURR_PAGE'] == 'changePass' ? 'active' : '')?>" href="change-pass.php">
+                                <i class="fa-solid fa-key"></i>
+                                    Change Password
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

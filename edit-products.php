@@ -1,7 +1,7 @@
-<?php require_once("header-nav.php");?>
+<?php session_start(); ?>
 <?php
-    session_start();
-
+    
+    require_once("header-nav.php");
 	if(isset($_GET['k'])){
 		$_SESSION['k'] = $_GET['k'];
 	}

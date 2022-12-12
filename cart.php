@@ -71,7 +71,7 @@
                                             $_SESSION['total_price'] += $total;
                                         ?>
                                         <tr>
-                                            <td><img class="img-thumbnail" src="img/<?php echo $products[$id]['photo1'] ?>" style="height: 50px" /></td>
+                                            <td><img class="img-thumbnail" src="uploads/<?php echo $products[$id]['photo1'] ?>" style="height: 50px" /></td>
                                             <td><?php echo $products[$id]['name'] ?></td>
                                             <td><?php echo $size ?></td>
                                             <td>

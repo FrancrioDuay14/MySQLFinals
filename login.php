@@ -30,7 +30,7 @@
         }
         
         else {
-            echo 'ERROR: Could not execute your request!';
+            echo 'Incorect Username/Password!';
         }
        
         closeConn($con);   
