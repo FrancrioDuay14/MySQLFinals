@@ -61,19 +61,19 @@
                         <div class="form-group row">
                             <label for="txtExistingPass" class="col-sm-2 col-form-label">Existing Password:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="txtExistingPass" id="txtExistingPass" required>
+                                    <input type="password" class="form-control" name="txtExistingPass" id="txtExistingPass" required>
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="txtNewPass" class="col-sm-2 col-form-label">New Password:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="txtNewPass" id="txtNewPass" required>
+                                    <input type="password" class="form-control" name="txtNewPass" id="txtNewPass" required>
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="ConfirmPass" class="col-sm-2 col-form-label">Confrim Password:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="ConfirmPass" id="ConfirmPass" required>
+                                    <input type="password" class="form-control" name="ConfirmPass" id="ConfirmPass" required>
                                 </div>
                         </div>
                         <!--<div class="form-group row">
