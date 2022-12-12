@@ -43,7 +43,7 @@
             <?php if(isset($_GET['k']) && ($_GET['k'] < count($products))): ?>                
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">                        
                         <div class="product-image2">                            
-                            <img class="pic-1 w-100" src="img/<?php echo $products[$_GET['k']]['photo1']; ?>">                                                    
+                            <img class="pic-1 w-100" src="uploads/<?php echo $products[$_GET['k']]['photo1']; ?>">                                                    
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4">
